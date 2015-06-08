@@ -7,4 +7,5 @@ div.container-fluid
           span(ng-if='dm.state.connection.error') Something went wrong while bootstrapping the {{ dm.title }}
           span(ng-if='dm.state.connection.success') Time to get crackin' on the {{ dm.title }}
         button.btn(ng-click="dm.getOneCharacter(1009610)" title="who is Spider-Man?") Spider-Man
+        img(src='{{dm.character.thumbnail.path}}/standard_xlarge.jpg')
         h3 {{dm.character.name}}
