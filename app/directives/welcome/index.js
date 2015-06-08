@@ -18,6 +18,7 @@ import './welcome.scss';
 function gsWelcomeController (MarvelService) {
   const dm = this;
   dm.state = {};
+  dm.character = {};
 
   dm.init = function () {
     setTimeout(dm.makeSampleRequest, 1000); // for dramatic effect
@@ -29,6 +30,14 @@ function gsWelcomeController (MarvelService) {
     // ping a known-good endpoint
     MarvelService.getCharacters()
       .then(() => dm.state.connection.success = true)
+      .catch(() => dm.state.connection.error = true)
+      .finally(() => dm.state.connection.complete = true);
+  };
+
+  dm.getOneCharacter = function (charId) {
+
+    MarvelService.getOne("character", charId)
+      .then(() => console.log(MarvelService.getOne))
       .catch(() => dm.state.connection.error = true)
       .finally(() => dm.state.connection.complete = true);
   };

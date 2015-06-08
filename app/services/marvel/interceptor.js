@@ -4,7 +4,7 @@
 // Once it's been created, please uncomment the line below so this
 // module can import your authentication keys.
 // -------------------------------------------------
-// import AUTH_KEYS from 'config/marvel.auth';
+import AUTH_KEYS from 'config/marvel.auth';
 // -------------------------------------------------
 
 const API_PARAM = 'apikey';
