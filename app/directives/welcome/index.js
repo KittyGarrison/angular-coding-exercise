@@ -31,19 +31,50 @@ function gsWelcomeController (MarvelService) {
     MarvelService.getCharacters()
       .then(() => dm.state.connection.success = true)
       .catch(() => dm.state.connection.error = true)
-      .finally(() => dm.state.connection.complete = true);
+      .finally(() => dm.state.connection.complete = true)
   };
 
   dm.getOneCharacter = function (charId) {
-
-    MarvelService.getOne("character", charId)
-      .then(() => console.log(MarvelService.getOne))
-      .catch(() => dm.state.connection.error = true)
-      .finally(() => dm.state.connection.complete = true);
+    MarvelService.getCharacterById(charId)
+    .then(function(value) {
+      console.log(value); // Success!
+    }, function(reason) {
+      console.log(reason); // Error!
+    });
   };
+  
+  // dm.getOneCharacter = function (charId) {
+
+  //   MarvelService.getCharacterById(charId).success(function(data){
+  //    console.log("-----------here is the data" + data.data.results);
+  //   })
+
+  // };
+
+  // dm.getOneCharacter = function (charId) {
+
+  //   MarvelService.getCharacterById(charId).success(function(data){
+  //    dm.character = data.data.results;
+  //    console.log("-----------here is the data" + data);
+  //   })
+  // };
 
   dm.init();
 }
+
+// _function from Taresa________________________________
+
+// dm.getComicsByTitleStartsWith = function(title){
+//    MarvelService.getComicsByTitleStartsWith(title).success(function(data){
+//      dm.dataLoad = true;
+//      console.log(data);
+//      console.log(dm.dataLoad);
+//      dm.results = data.data.results;
+//    })
+//  }
+
+// _________________________________
+
 
 function gsWelcome () {
   return {
