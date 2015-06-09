@@ -58,7 +58,7 @@ function gsWelcomeController (MarvelService) {
       .finally(() => dm.state.connection.complete = true)
   };
 
-  dm.getOneCharacter = function (charId) {
+  dm.getCharacterById = function (charId) {
     MarvelService.getCharacterById(charId)
     .then(function(data) {
       dm.character = data.data.data.results[0];
