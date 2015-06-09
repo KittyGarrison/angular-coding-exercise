@@ -69,7 +69,7 @@ function gsWelcomeController (MarvelService) {
   };
 
   dm.getSeriesById = function (charId) {
-    var total;
+    dm.covers = [];
     MarvelService.getSeriesById(charId)
     .then(function(data) {
       dm.series.data = data.data.data.results;
@@ -79,7 +79,6 @@ function gsWelcomeController (MarvelService) {
   };
 
   dm.populateCovers = function(){
-    dm.covers = [];
     dm.series.data.forEach(function(series,i){
       dm.covers.push({'img':series.thumbnail.path,'title':series.title, 'startYear': series.startYear});
     })

@@ -28,6 +28,8 @@ div.container
          |-STAN LEE
 
     div.col-md-7
+      div(ng-show="dm.covers.length===0")
+        h2 Something cool is coming, you just wait.
       div(ng-hide="dm.covers.length===0")
         h3
         h4 {{dm.character.name}} appeared in these series

@@ -4,6 +4,6 @@ div.navbar.navbar-inverse.navbar-static-top
       // @TODO add additional logic to handle warning state while checking API
       div.status(ng-class='dm.status.success ? "status--success" : "status--danger"')
         span.status__indicator
-        span.status__label(ng-if='!dm.status.complete') Attempting to connect to the Marvel API.
-        span.status__label(ng-if='dm.status.success') Successfully connected to the Marvel API.
+        span.status__label(ng-if='!dm.status.complete') This will just take a second.
+        span.status__label(ng-if='dm.status.success') You rock and you can do this. You are connected to the Marvel API.
         span.status__label(ng-if='dm.status.error') There was an error reaching the Marvel API.
