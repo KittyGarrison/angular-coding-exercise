@@ -6,6 +6,10 @@ div.container-fluid
         h1.welcome__title
           span(ng-if='dm.state.connection.error') Something went wrong while bootstrapping the {{ dm.title }}
           span(ng-if='dm.state.connection.success') Time to get crackin' on the {{ dm.title }}
-        button.btn(ng-click="dm.getOneCharacter(1009610)" title="who is Spider-Man?") Spider-Man
+        form
+          <select data-ng-model="dm.chosenHero" data-ng-options="hero.name for hero in dm.heroes"></select>
+
+        button.btn.btn-primary(ng-click="dm.getOneCharacter(dm.chosenHero.id)" ) Select
+        br
         img(src='{{dm.character.thumbnail.path}}/standard_xlarge.jpg')
-        h3 {{dm.character.name}}
+        h3 {{dm.character.name}} 

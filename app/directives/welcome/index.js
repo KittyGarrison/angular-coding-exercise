@@ -19,6 +19,30 @@ function gsWelcomeController (MarvelService) {
   const dm = this;
   dm.state = {};
   dm.character = {};
+  dm.chosenHero = {name: "Wolverine",
+    id: "1009718"};
+  dm.heroes = [
+    {name: "Wolverine",
+    id: "1009718"},
+    {name: "Spider-Man",
+    id: "1009610"},
+    {name: "Captain America",
+    id: "1009220"},
+    {name: "Daredevil",
+    id: "1009262"},
+    {name: "Black Widow",
+    id: "1009189"},
+    {name: "Luke Cage",
+    id: "1009215"},
+    {name: "Iron Man",
+    id: "1009368"},
+    {name: "Thor",
+    id: "1009664"},
+    {name: "Hulk",
+    id: "1009351"},
+    {name: "Captain Marvel",
+    id: "1010338"}
+  ]
 
   dm.init = function () {
     setTimeout(dm.makeSampleRequest, 1000); // for dramatic effect
