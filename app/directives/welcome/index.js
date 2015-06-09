@@ -20,6 +20,7 @@ function gsWelcomeController (MarvelService) {
   dm.state = {};
   dm.character = {};
   dm.series = {};
+  dm.covers = [];
   dm.chosenHero = {name: "Wolverine",
     id: "1009718"};
   dm.heroes = [
@@ -68,12 +69,21 @@ function gsWelcomeController (MarvelService) {
   };
 
   dm.getSeriesById = function (charId) {
+    var total;
     MarvelService.getSeriesById(charId)
     .then(function(data) {
-      dm.series = data.data.data.results;
-      console.log("_________the series" + dm.series);
+      dm.series.data = data.data.data.results;
+      console.log(dm.series.data);
+      dm.populateCovers();
     })
   };
+
+  dm.populateCovers = function(){
+    dm.covers = [];
+    dm.series.data.forEach(function(series,i){
+      dm.covers.push({'img':series.thumbnail.path,'title':series.title});
+    })
+  }
 
   dm.init();
 }
