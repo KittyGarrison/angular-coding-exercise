@@ -1,15 +1,25 @@
 gs-status-bar(ng-model='dm.state.connection')
-div.container-fluid
+div.container
   div.row
-    div.col-md-6.col-md-push-3
+
       div.welcome
         h1.welcome__title
           span(ng-if='dm.state.connection.error') Something went wrong while bootstrapping the {{ dm.title }}
-          span(ng-if='dm.state.connection.success') Time to get crackin' on the {{ dm.title }}
-        div.input-group.input-group-lg
-          select(data-ng-model="dm.chosenHero" data-ng-options="hero.name for hero in dm.heroes")
 
-          button.btn.btn-primary.btn-xs(ng-click="dm.getCharacterById(dm.chosenHero.id)" ) Select
+  div.row
+    div.col-md-3
+      h3
+      div.input-group.input-group-lg
+        select(data-ng-model="dm.chosenHero" data-ng-options="hero.name for hero in dm.heroes")
+        button.btn.btn-primary.btn-xs(ng-click="dm.getCharacterById(dm.chosenHero.id)") Select
         br
-        img(src='{{dm.character.thumbnail.path}}/standard_xlarge.jpg')
-        h3 {{dm.character.name}} 
+    div.col-md-3
+      h3
+        a(ng-href="{{dm.character.urls[0]}}"){{dm.character.name}}
+      img(src='{{dm.character.thumbnail.path}}/standard_xlarge.jpg')
+    div.col-md-4
+      h1
+      p{{dm.character.description}}
+        span(ng-if='dm.character.description===""') OOPS! It seems Marval has not deemed this hero worthy of a proper discription in their API. 
+
+
