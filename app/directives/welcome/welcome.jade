@@ -28,6 +28,9 @@ div.container
          |-STAN LEE
 
     div.col-md-7
-      //- p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      div.comic(ng-repeat="cover in dm.covers")
+      div(ng-hide="dm.covers.length===0")
+        h3
+        h4 {{dm.character.name}} appeared in these series
+      div.comic(ng-repeat="cover in dm.covers | orderBy:'startYear'")
        img(src='{{cover.img}}/portrait_xlarge.jpg')
+       h5 {{cover.title}}

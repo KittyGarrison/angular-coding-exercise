@@ -56,7 +56,7 @@ class MarvelService {
   }
 
   getSeriesById (id) {
-    return this.getOne('characters',`${id}/series?contains=comic&orderBy=startYear`);
+    return this.getOne('characters',`${id}/series?contains=comic`);
   }
 
   
