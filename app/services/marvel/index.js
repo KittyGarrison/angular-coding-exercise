@@ -55,6 +55,11 @@ class MarvelService {
     return this.getOne('characters', id, config);
   }
 
+  getSeriesById (id) {
+    return this.getOne('characters',`/${id}/series`);
+  }
+
+  
   // Handles the actual process of making the API request, all methods
   // should route through this.
   // [String] RequestType - HTTP Verb (GET/POST/etc.)
@@ -63,6 +68,7 @@ class MarvelService {
   // Returns -> Promise -> (Response, Error)
   dispatch (requestType, resource, config) {
     const endpoint = [MARVEL_API, resource].join('/');
+    console.log(endpoint)
 
     return this._$http[requestType.toLowerCase()](endpoint, config);
   }

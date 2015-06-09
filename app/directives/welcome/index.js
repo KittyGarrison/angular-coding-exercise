@@ -19,6 +19,7 @@ function gsWelcomeController (MarvelService) {
   const dm = this;
   dm.state = {};
   dm.character = {};
+  dm.series = {};
   dm.chosenHero = {name: "Wolverine",
     id: "1009718"};
   dm.heroes = [
@@ -63,6 +64,14 @@ function gsWelcomeController (MarvelService) {
     .then(function(data) {
       dm.character = data.data.data.results[0];
       console.log(dm.character);
+    })
+  };
+
+  dm.getSeriesById = function (charId) {
+    MarvelService.getSeriesById(charId)
+    .then(function(data) {
+      dm.series = data.data.data.results;
+      console.log("_________the series" + dm.series);
     })
   };
 
